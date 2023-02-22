@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Log In</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+	<script src="login.js" defer></script>
+</head>
+<body id="body">
+    <header>
+        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">projets</a></li>
+                <li><a href="index.html#contact">contact</a></li>
+                <li id ="login"><a href="login.html">login</a></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div id="pageLogin">
+    <h1 id="titleLogin">Log In</h1>
+    <form action="page-log-in" method="post" id="formLogin">
+      <div id="emailLogin">
+          <label for="email" id="label">E-mail</label>
+          <input type="text" id="email" name="user_mail">
+      </div>
+      <div id="passwordLogin">
+          <label id="label"for="password">Mot de passe</label>
+          <input type="password" id="password" name="user_password">
+      </div>
+      <span id="alertLogin"></span>
+      <div id="btnLogin">
+      <button type="submit" id="btnConnecter">Se connecter</button>
+  </div>
+  </form>
+  <p id="pLogin">Mot de passe oublié</p>
+</div>
+</main>
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+</body>
+</html>
