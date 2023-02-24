@@ -1,65 +1,40 @@
-fonctionLogin = (event) => {
-  // Sélection du formulaire
-  let formLogin = document.getElementById("formLogin");
-  // Écoute l'événement "soumettre" du bouton "Se connecter"
-  formLogin.addEventListener("submit", async (event) => {
-    // Empêche le rafraîchissement de la page
-    event.preventDefault();
-    // Récupère les données entrées par l'utilisateur
-    let userValues = {
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
-    };
-    try {
-      const response = await fetch("http://localhost:5678/api/users/login", {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(userValues),
-      });
-      const data = await response.json();
-      console.log(data);
-      sessionStorage.setItem("token", data.token); // Stocke le token dans le sessionStorage
-    } catch (error) {
-      console.error(error);
-    }
+// Récupère le formulaire
+const formLogin = document.getElementById("formLogin");
+
+// Evènement click
+formLogin.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  // Séléction des données entrées par l'utilisateur dans les champs de saisie
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+  const user = {
+    email: email,
+    password: password,
+  };
+  // Méthode POST pour envoyer les données entrées par l'utilisateur
+  const response = await fetch("http://localhost:5678/api/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
   });
-};
 
-// Si combinaison mot de passe/ user incorrecte
-// si ok =>
+  const alertLogin = document.getElementById("alertLogin");
 
-/* 
-
-
-    // Condition 1 : alerte si une des deux cases est vide
-
-    if (email.trim() == "") {
-      let alertLogin = document.getElementById("alertLogin");
-      alertLogin.innerHTML =
-        'Les champs "E-mail" et "Mot de passe" sont requis.';
-      event.preventDefault();
-    }
-
-
-
-*/
-
-// fetch les données avec post
-/*
-fetch("http://localhost:5678/api/users/login", {
-  method: "POST",
-  headers: {
-    //Accept: "application/JSON",
-    "Content-Type": "application/json; charset=UTF_8",
-  },
-  body: JSON.stringify({
-    "email": email,
-    "password": password,
-  })
-   
+  if (response.ok) {
+    const data = await response.json();
+    // Stockage du token dans le localStorage
+    sessionStorage.setItem("token", data.token);
+    // Redirection vers la page d'accueil en mode édition
+    window.location.replace("index.html");
+    // condition si i le champs email ou password est vide
+  } else if (email === "" || password === "") {
+    alertLogin.innerHTML += "Les champs email et mot de passe sont requis.";
+    //Condition si email ou mdp invalides
+  } else {
+    alertLogin.innerHTML += "E-mail ou mot de passe invalide";
+  }
 });
-*/
-// stocker les données récupérées dans le local storage */
+
+// ^[]
