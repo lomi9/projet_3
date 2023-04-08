@@ -7,7 +7,7 @@ formLogin.addEventListener("submit", async function (e) {
   // Séléction des données entrées par l'utilisateur dans les champs de saisie
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
-  const user = {
+  let user = {
     email: email,
     password: password,
   };
@@ -30,11 +30,10 @@ formLogin.addEventListener("submit", async function (e) {
     window.location.replace("index.html");
     // condition si i le champs email ou password est vide
   } else if (email === "" || password === "") {
-    alertLogin.innerHTML += "Les champs email et mot de passe sont requis.";
+    alertLogin.innerHTML = "Les champs email et mot de passe sont requis.";
+    return;
     //Condition si email ou mdp invalides
   } else {
-    alertLogin.innerHTML += "E-mail ou mot de passe invalide";
+    alertLogin.innerHTML = "E-mail ou mot de passe invalide";
   }
 });
-
-// ^[]

@@ -13,13 +13,13 @@
 </head>
 <body id="body">
     <header>
-        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+        <h1 id="sophie-bluel-title"><a href="index.html" id="sophie-bluel-title-link">Sophie Bluel</a><span>Architecte d'inteérieur</span></h1>
         <nav>
-            <ul>
-                <li><a href="index.html">projets</a></li>
-                <li><a href="index.html#contact">contact</a></li>
-                <li id ="login"><a href="login.html">login</a></li>
-                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+            <ul id="ul-nav">
+                <li><a href="index.html" class="a-li-nav">projets</a></li>
+                <li><a href="index.html#contact" class="a-li-nav">contact</a></li>
+                <li id ="login"><a href="login.html" class="a-li-nav">login</a></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram" class="a-li-nav" id="instagram"></li>
             </ul>
         </nav>
     </header>
@@ -28,11 +28,11 @@
     <h1 id="titleLogin">Log In</h1>
     <form action="page-log-in" method="post" id="formLogin">
       <div id="emailLogin">
-          <label for="email" id="label">E-mail</label>
+          <label for="email" id="label1">E-mail</label>
           <input type="text" id="email" name="user_mail">
       </div>
       <div id="passwordLogin">
-          <label id="label"for="password">Mot de passe</label>
+          <label id="label2" for="password">Mot de passe</label>
           <input type="password" id="password" name="user_password">
       </div>
       <span id="alertLogin"></span>
