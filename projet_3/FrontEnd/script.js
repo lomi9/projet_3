@@ -481,6 +481,7 @@ form.addEventListener("submit", function (event) {
   })
     .then(function (response) {
       alert("Votre projet a bien été ajouté à la galerie de travaux.");
+      window.location.reload();
     })
     .catch(function (error) {
       console.log(error);
@@ -510,6 +511,7 @@ const deleteWork = () => {
         .then((response) => {
           if (response.ok) {
             alert("Votre projet a bien été supprimé de la galerie de travaux.");
+            window.location.reload();
           } else {
             alert("Erreur lors de la suprresion de votre projet.");
           }
